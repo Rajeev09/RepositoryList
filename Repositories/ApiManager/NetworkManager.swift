@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataSourceProtocol {
-    func fetchData<T: Decodable>(from urlString: String, completion: @escaping (Result<T,Error>) -> ())
+    func fetchData<T: Decodable>(forceFetch: Bool, from urlString: String, completion: @escaping (Result<T,Error>) -> ())
 }
 
 class NetworkManager: DataSourceProtocol {    
@@ -31,11 +31,19 @@ class NetworkManager: DataSourceProtocol {
         return URLSession(configuration: sessionConfiguration)
     }()
     
-    func fetchData<T: Decodable>(from urlString: String, completion: @escaping (Result<T,Error>) -> ()) {
+    func fetchData<T: Decodable>(forceFetch: Bool, from urlString: String, completion: @escaping (Result<T,Error>) -> ()) {
         guard let downloadUrl = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: downloadUrl)
+        
+        let userTimeStamp = UserDefaults.standard.getUserTimeStamp()
+        let currentTimeStamp = Int(Date().timeIntervalSince1970)
+        
+        if forceFetch || ((currentTimeStamp - userTimeStamp) > (2*60*60)) {
+            cache.removeAllCachedResponses()
+        }
+        
         // First try to fetching cached data if exist
-        if let cachedData = self.cache.cachedResponse(for: urlRequest) {
+        if !forceFetch, let cachedData = self.cache.cachedResponse(for: urlRequest) {
             do {
                 let jsonData = try JSONDecoder().decode(T.self, from: cachedData.data)
                 completion(.success(jsonData))
@@ -53,6 +61,7 @@ class NetworkManager: DataSourceProtocol {
                     
                     let cachedData = CachedURLResponse(response: response!, data: data!)
                     self.cache.storeCachedResponse(cachedData, for: urlRequest)
+                    UserDefaults.standard.setUserTimeStamp(value: Int(Date().timeIntervalSince1970))
                     do {
                         let jsonData = try JSONDecoder().decode(T.self, from: cachedData.data)
                         completion(.success(jsonData))

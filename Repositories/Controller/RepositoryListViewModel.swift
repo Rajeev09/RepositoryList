@@ -21,11 +21,12 @@ class RepositoryListViewModel {
         self.networkManager = networkManager
     }
     
-    func fetchRepositories() {
-        self.networkManager.fetchData(from: url) { [weak self] (result: Result<RepositoryListModel, Error>) in
+    func fetchRepositories(forceFetch: Bool) {
+        self.viewState.value = .Loading
+        self.networkManager.fetchData(forceFetch: forceFetch, from: url) { [weak self] (result: Result<RepositoryListModel, Error>) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
-                self.viewState.value = .Loading
+                self.viewState.value = .Loaded
                 switch result {
                 case .success(let modelList):
                     self.cellModels = modelList.items?.map { RepositoryCellViewModel(repositoryModel: $0) } ?? []

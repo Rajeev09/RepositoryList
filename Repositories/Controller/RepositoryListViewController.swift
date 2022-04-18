@@ -14,12 +14,15 @@ class RepositoryListViewController: UIViewController {
     @IBOutlet weak var errorView: UIImageView!
     
     let viewModel = RepositoryListViewModel(networkManager: NetworkManager.shared)
+    var refreshControl: UIRefreshControl?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Trending"
         self.setUpTableView()
+        self.setRefreshControl()
         self.setupBinding()
-        self.viewModel.fetchRepositories()
+        self.viewModel.fetchRepositories(forceFetch: true)
     }
     
     private func setUpTableView() {
@@ -31,6 +34,17 @@ class RepositoryListViewController: UIViewController {
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.registerCell(RepositoryCell.self)
         self.tableView.isHidden = true
+    }
+    
+    private func setRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refresh(_ sender: Any) {
+        self.viewModel.fetchRepositories(forceFetch: true)
     }
     
     private func setupBinding() {
@@ -65,6 +79,7 @@ extension RepositoryListViewController {
             self.showSkeletonForView()
         case .Loaded:
             self.hideSkeletonForView()
+            self.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         case .Error:
             self.errorView.isHidden = false

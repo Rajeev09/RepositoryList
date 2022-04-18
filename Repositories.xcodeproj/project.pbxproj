@@ -17,6 +17,7 @@
 		0485AFD2280DDE4D00008ECF /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFD1280DDE4D00008ECF /* ViewState.swift */; };
 		0485AFDF280DE11900008ECF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFDE280DE11900008ECF /* UITableView+Extension.swift */; };
 		0485AFEE280DEE4800008ECF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFED280DEE4700008ECF /* UIView+Extension.swift */; };
+		0485AFFB280DFACB00008ECF /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFFA280DFACB00008ECF /* UserDefaults+Extension.swift */; };
 		04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD2280BF21F004280E5 /* AppDelegate.swift */; };
 		04FDCDD5280BF21F004280E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */; };
 		04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD6280BF21F004280E5 /* RepositoryListViewController.swift */; };
@@ -58,6 +59,7 @@
 		0485AFD1280DDE4D00008ECF /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		0485AFDE280DE11900008ECF /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0485AFED280DEE4700008ECF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		0485AFFA280DFACB00008ECF /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		04FDCDCF280BF21F004280E5 /* Repositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Repositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FDCDD2280BF21F004280E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				0485AFC9280DDD9600008ECF /* Observable.swift */,
 				0485AFD1280DDE4D00008ECF /* ViewState.swift */,
 				0485AFED280DEE4700008ECF /* UIView+Extension.swift */,
+				0485AFFA280DFACB00008ECF /* UserDefaults+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */,
 				0485AFD2280DDE4D00008ECF /* ViewState.swift in Sources */,
 				0485AF71280DB2B700008ECF /* RepositoryModel.swift in Sources */,
+				0485AFFB280DFACB00008ECF /* UserDefaults+Extension.swift in Sources */,
 				0485AF6B280DA48300008ECF /* RepositoryCellViewModel.swift in Sources */,
 				04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */,
 				0485AFCA280DDD9600008ECF /* Observable.swift in Sources */,
