@@ -30,6 +30,9 @@
                             <constraint firstItem="BTR-PT-ERL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hBm-Uf-xv9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="BTR-PT-ERL" id="xdZ-eg-cQU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
