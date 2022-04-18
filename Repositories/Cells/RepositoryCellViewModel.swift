@@ -15,6 +15,7 @@ class RepositoryCellViewModel {
     let language: String?
     let forksCount: Int?
     let starGazersCount: Int?
+    private(set) var hasCollapsed = true
     
     var avtarImageUrl: URL? {
         guard let avtarImageUrlString = avtarImageUrlString else { return nil }
@@ -29,5 +30,9 @@ class RepositoryCellViewModel {
         self.language = repositoryModel.language
         self.forksCount = repositoryModel.forksCount
         self.starGazersCount = repositoryModel.starGazersCount
+    }
+    
+    func setCollapsibleState(hasCollapsed: Bool) {
+        self.hasCollapsed = hasCollapsed
     }
 }

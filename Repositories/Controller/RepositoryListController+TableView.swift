@@ -24,6 +24,7 @@ extension RepositoryListViewController: UITableViewDataSource {
 extension RepositoryListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.viewModel.setCollapsibleState(index: indexPath.row)
+        self.viewModel.viewState.value = .Loaded
     }
 }

@@ -182,6 +182,7 @@
             <connections>
                 <outlet property="avatarImageView" destination="cBB-ws-lVd" id="FL7-04-rsK"/>
                 <outlet property="descriptionLabel" destination="20c-Hp-HpF" id="2o6-WM-Yue"/>
+                <outlet property="detailView" destination="aUl-Fn-ycv" id="h5N-ub-ogD"/>
                 <outlet property="forksCountLabel" destination="eJ8-Pr-qfv" id="0xl-3e-QHz"/>
                 <outlet property="forksCountView" destination="3wq-Xh-vvX" id="qHY-jO-gIE"/>
                 <outlet property="languageLabel" destination="R8G-iJ-E3l" id="uej-WB-iWK"/>

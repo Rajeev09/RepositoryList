@@ -46,4 +46,9 @@ extension RepositoryListViewModel {
     func getRepositoryCellModel(index: Int) -> RepositoryCellViewModel {
         return cellModels[index]
     }
+    
+    func setCollapsibleState(index: Int) {
+        let cellModel = cellModels[index]
+        cellModel.setCollapsibleState(hasCollapsed: !cellModel.hasCollapsed)
+    }
 }

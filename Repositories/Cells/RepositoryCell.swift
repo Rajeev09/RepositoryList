@@ -21,7 +21,7 @@ class RepositoryCell: UITableViewCell {
     @IBOutlet weak var languageView: UIView!
     @IBOutlet weak var forksCountView: UIView!
     @IBOutlet weak var starGazersCountView: UIView!
-
+    @IBOutlet weak var detailView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +53,12 @@ class RepositoryCell: UITableViewCell {
             self.starGazersCountLabel.text = String(starGazersCount)
             self.starGazersCountView.isHidden = false
         }
+        
+        detailView.isHidden = false
+        if viewModel.hasCollapsed {
+            detailView.isHidden = true
+        }
+        
     }
     
 }
