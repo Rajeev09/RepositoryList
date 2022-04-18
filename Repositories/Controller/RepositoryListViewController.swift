@@ -11,8 +11,9 @@ import UIKit
 class RepositoryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var errorView: UIImageView!
-    
+    @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet weak var errorView: UIView!
+
     private lazy var dataSource = RepositoryDataSource(networkManager: NetworkManager.shared)
     lazy var viewModel = RepositoryListViewModel(repositoryDataSource: dataSource)
     var refreshControl: UIRefreshControl?
@@ -20,6 +21,8 @@ class RepositoryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Trending"
+        self.retryButton.layer.borderWidth = 0.5
+        self.retryButton.layer.borderColor = UIColor(red: 49/255.0, green: 176/255.0, blue: 87/255.0, alpha: 1).cgColor
         self.setUpTableView()
         self.setRefreshControl()
         self.setupBinding()
@@ -45,6 +48,10 @@ class RepositoryListViewController: UIViewController {
     }
     
     @objc private func refresh(_ sender: Any) {
+        self.viewModel.fetchRepositories(forceFetch: true)
+    }
+    
+    @IBAction private func retryFetchRepositories(_ sender: Any) {
         self.viewModel.fetchRepositories(forceFetch: true)
     }
     
@@ -80,9 +87,11 @@ extension RepositoryListViewController {
             self.showSkeletonForView()
         case .Loaded:
             self.hideSkeletonForView()
+            self.tableView.isHidden = false
             self.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         case .Error:
+            self.tableView.isHidden = true
             self.errorView.isHidden = false
         }
     }

@@ -26,20 +26,48 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </tableView>
-                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nointernet_connection" translatesAutoresizingMaskIntoConstraints="NO" id="mol-vI-iPl">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkb-Sx-pA2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nointernet_connection" translatesAutoresizingMaskIntoConstraints="NO" id="mol-vI-iPl">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmW-UF-2lI">
+                                                <rect key="frame" x="16" y="710" width="382" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="k7b-Ig-ryv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <state key="normal" title="Retry">
+                                                    <color key="titleColor" red="0.19215686274509802" green="0.69019607843137254" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="retryFetchRepositories:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qAL-7r-hrj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="wmW-UF-2lI" secondAttribute="bottom" constant="16" id="31b-gS-ZnU"/>
+                                            <constraint firstItem="mol-vI-iPl" firstAttribute="leading" secondItem="Wkb-Sx-pA2" secondAttribute="leading" id="7QA-XO-wlT"/>
+                                            <constraint firstAttribute="trailing" secondItem="mol-vI-iPl" secondAttribute="trailing" id="FiF-Xk-JFK"/>
+                                            <constraint firstItem="mol-vI-iPl" firstAttribute="top" secondItem="Wkb-Sx-pA2" secondAttribute="top" id="XpL-1W-J2h"/>
+                                            <constraint firstItem="wmW-UF-2lI" firstAttribute="leading" secondItem="Wkb-Sx-pA2" secondAttribute="leading" constant="16" id="b6y-sK-dLw"/>
+                                            <constraint firstItem="wmW-UF-2lI" firstAttribute="top" secondItem="mol-vI-iPl" secondAttribute="bottom" constant="16" id="qfp-p6-iRV"/>
+                                            <constraint firstAttribute="trailing" secondItem="wmW-UF-2lI" secondAttribute="trailing" constant="16" id="uFn-1k-bKY"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Wkb-Sx-pA2" firstAttribute="leading" secondItem="EYR-vZ-WK2" secondAttribute="leading" id="3Fv-Fp-cOQ"/>
                                     <constraint firstAttribute="trailing" secondItem="BTR-PT-ERL" secondAttribute="trailing" id="51S-UL-ZbH"/>
                                     <constraint firstItem="BTR-PT-ERL" firstAttribute="leading" secondItem="EYR-vZ-WK2" secondAttribute="leading" id="7E1-M9-eka"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wkb-Sx-pA2" secondAttribute="trailing" id="HgK-Dr-RMf"/>
+                                    <constraint firstItem="Wkb-Sx-pA2" firstAttribute="top" secondItem="EYR-vZ-WK2" secondAttribute="top" id="IJC-Rl-XEC"/>
                                     <constraint firstItem="BTR-PT-ERL" firstAttribute="top" secondItem="EYR-vZ-WK2" secondAttribute="top" id="ObY-hb-tbm"/>
-                                    <constraint firstItem="mol-vI-iPl" firstAttribute="top" secondItem="EYR-vZ-WK2" secondAttribute="top" id="VtI-EH-D2b"/>
-                                    <constraint firstAttribute="trailing" secondItem="mol-vI-iPl" secondAttribute="trailing" id="YCY-aF-w1P"/>
                                     <constraint firstAttribute="bottom" secondItem="BTR-PT-ERL" secondAttribute="bottom" id="ixT-EF-jsj"/>
-                                    <constraint firstAttribute="bottom" secondItem="mol-vI-iPl" secondAttribute="bottom" id="l0O-lm-Ehn"/>
-                                    <constraint firstItem="mol-vI-iPl" firstAttribute="leading" secondItem="EYR-vZ-WK2" secondAttribute="leading" id="sTQ-kx-DMg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wkb-Sx-pA2" secondAttribute="bottom" id="zJf-W5-Z2L"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -60,7 +88,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="HA5-zg-0IM"/>
                     <connections>
-                        <outlet property="errorView" destination="mol-vI-iPl" id="Lpm-Qe-KeZ"/>
+                        <outlet property="errorView" destination="Wkb-Sx-pA2" id="n9Y-b0-xmR"/>
+                        <outlet property="retryButton" destination="wmW-UF-2lI" id="US0-ok-r7I"/>
                         <outlet property="tableView" destination="BTR-PT-ERL" id="xdZ-eg-cQU"/>
                     </connections>
                 </viewController>
