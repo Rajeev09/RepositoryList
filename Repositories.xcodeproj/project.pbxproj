@@ -11,6 +11,10 @@
 		0485AF63280DA47300008ECF /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AF62280DA47300008ECF /* RepositoryListViewModel.swift */; };
 		0485AF6B280DA48300008ECF /* RepositoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AF6A280DA48300008ECF /* RepositoryCellViewModel.swift */; };
 		0485AF71280DB2B700008ECF /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AF70280DB2B700008ECF /* RepositoryModel.swift */; };
+		0485AF84280DDB9300008ECF /* RepositoryListController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AF83280DDB9300008ECF /* RepositoryListController+TableView.swift */; };
+		0485AFCA280DDD9600008ECF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFC9280DDD9600008ECF /* Observable.swift */; };
+		0485AFD2280DDE4D00008ECF /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFD1280DDE4D00008ECF /* ViewState.swift */; };
+		0485AFDF280DE11900008ECF /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AFDE280DE11900008ECF /* UITableView+Extension.swift */; };
 		04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD2280BF21F004280E5 /* AppDelegate.swift */; };
 		04FDCDD5280BF21F004280E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */; };
 		04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD6280BF21F004280E5 /* RepositoryListViewController.swift */; };
@@ -19,7 +23,6 @@
 		04FDCDDF280BF222004280E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FDCDDD280BF222004280E5 /* LaunchScreen.storyboard */; };
 		04FDCDEA280BF223004280E5 /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDE9280BF223004280E5 /* RepositoriesTests.swift */; };
 		04FDCDF5280BF223004280E5 /* RepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDF4280BF223004280E5 /* RepositoriesUITests.swift */; };
-		04FDCE06280C0170004280E5 /* RepositoryListController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */; };
 		04FDCE18280C2AFF004280E5 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCE16280C2AFF004280E5 /* RepositoryCell.swift */; };
 		04FDCE19280C2AFF004280E5 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDCE17280C2AFF004280E5 /* RepositoryCell.xib */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,10 @@
 		0485AF62280DA47300008ECF /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
 		0485AF6A280DA48300008ECF /* RepositoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellViewModel.swift; sourceTree = "<group>"; };
 		0485AF70280DB2B700008ECF /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		0485AF83280DDB9300008ECF /* RepositoryListController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryListController+TableView.swift"; sourceTree = "<group>"; };
+		0485AFC9280DDD9600008ECF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		0485AFD1280DDE4D00008ECF /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		0485AFDE280DE11900008ECF /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		04FDCDCF280BF21F004280E5 /* Repositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Repositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FDCDD2280BF21F004280E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +67,6 @@
 		04FDCDF0280BF223004280E5 /* RepositoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepositoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FDCDF4280BF223004280E5 /* RepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesUITests.swift; sourceTree = "<group>"; };
 		04FDCDF6280BF223004280E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryListController+TableView.swift"; sourceTree = "<group>"; };
 		04FDCE16280C2AFF004280E5 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		04FDCE17280C2AFF004280E5 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +99,7 @@
 		0485AF61280DA45A00008ECF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0485AF83280DDB9300008ECF /* RepositoryListController+TableView.swift */,
 				04FDCDD6280BF21F004280E5 /* RepositoryListViewController.swift */,
 				0485AF62280DA47300008ECF /* RepositoryListViewModel.swift */,
 			);
@@ -105,6 +112,16 @@
 				0485AF70280DB2B700008ECF /* RepositoryModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0485AFC8280DDD8600008ECF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0485AFDE280DE11900008ECF /* UITableView+Extension.swift */,
+				0485AFC9280DDD9600008ECF /* Observable.swift */,
+				0485AFD1280DDE4D00008ECF /* ViewState.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		04FDCDC6280BF21F004280E5 = {
@@ -130,6 +147,7 @@
 		04FDCDD1280BF21F004280E5 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				0485AFC8280DDD8600008ECF /* Helpers */,
 				0485AF6F280DB05000008ECF /* Model */,
 				0485AF61280DA45A00008ECF /* Controller */,
 				04FDCE1D280C8783004280E5 /* Cells */,
@@ -140,7 +158,6 @@
 				04FDCDDB280BF222004280E5 /* Assets.xcassets */,
 				04FDCDDD280BF222004280E5 /* LaunchScreen.storyboard */,
 				04FDCDE0280BF222004280E5 /* Info.plist */,
-				04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -315,12 +332,15 @@
 				0485AF57280D9C6600008ECF /* NetworkManager.swift in Sources */,
 				04FDCE18280C2AFF004280E5 /* RepositoryCell.swift in Sources */,
 				04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */,
+				0485AFD2280DDE4D00008ECF /* ViewState.swift in Sources */,
 				0485AF71280DB2B700008ECF /* RepositoryModel.swift in Sources */,
-				04FDCE06280C0170004280E5 /* RepositoryListController+TableView.swift in Sources */,
 				0485AF6B280DA48300008ECF /* RepositoryCellViewModel.swift in Sources */,
 				04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */,
+				0485AFCA280DDD9600008ECF /* Observable.swift in Sources */,
 				04FDCDD5280BF21F004280E5 /* SceneDelegate.swift in Sources */,
 				0485AF63280DA47300008ECF /* RepositoryListViewModel.swift in Sources */,
+				0485AF84280DDB9300008ECF /* RepositoryListController+TableView.swift in Sources */,
+				0485AFDF280DE11900008ECF /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
