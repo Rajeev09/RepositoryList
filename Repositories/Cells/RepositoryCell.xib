@@ -180,6 +180,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImageView" destination="cBB-ws-lVd" id="FL7-04-rsK"/>
                 <outlet property="descriptionLabel" destination="20c-Hp-HpF" id="2o6-WM-Yue"/>
                 <outlet property="forksCountLabel" destination="eJ8-Pr-qfv" id="0xl-3e-QHz"/>
                 <outlet property="forksCountView" destination="3wq-Xh-vvX" id="qHY-jO-gIE"/>

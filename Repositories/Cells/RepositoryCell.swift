@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RepositoryCell: UITableViewCell {
     
@@ -24,6 +25,7 @@ class RepositoryCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.avatarImageView.layer.cornerRadius = 16
     }
     
     func configure(viewModel: RepositoryCellViewModel) {
@@ -33,6 +35,9 @@ class RepositoryCell: UITableViewCell {
         self.languageView.isHidden = true
         self.forksCountView.isHidden = true
         self.starGazersCountView.isHidden = true
+        if let url = viewModel.avtarImageUrl {
+            self.avatarImageView.sd_setImage(with: url, placeholderImage: nil)
+        }
 
         if let language = viewModel.language {
             self.languageLabel.text = language

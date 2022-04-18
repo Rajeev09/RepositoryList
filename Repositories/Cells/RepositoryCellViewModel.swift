@@ -9,16 +9,21 @@ import Foundation
 
 class RepositoryCellViewModel {
     let ownerName: String?
-    let avtarImageUrl: String?
+    let avtarImageUrlString: String?
     let name: String?
     let description: String?
     let language: String?
     let forksCount: Int?
     let starGazersCount: Int?
     
+    var avtarImageUrl: URL? {
+        guard let avtarImageUrlString = avtarImageUrlString else { return nil }
+        return URL(string: avtarImageUrlString)
+    }
+    
     init(repositoryModel: RepositoryModel) {
         self.ownerName = repositoryModel.owner?.name
-        self.avtarImageUrl = repositoryModel.owner?.imageUrl
+        self.avtarImageUrlString = repositoryModel.owner?.imageUrl
         self.name = repositoryModel.name
         self.description = repositoryModel.description
         self.language = repositoryModel.language
