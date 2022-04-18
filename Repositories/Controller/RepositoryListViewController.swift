@@ -26,10 +26,11 @@ class RepositoryListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 80
         self.tableView.separatorColor = .lightGray
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.registerCell(RepositoryCell.self)
+        self.tableView.isHidden = true
     }
     
     private func setupBinding() {
@@ -38,6 +39,22 @@ class RepositoryListViewController: UIViewController {
             self.render(state: state)
         }
     }
+    
+}
+
+//MARK: Skeleton
+extension RepositoryListViewController {
+    
+    func showSkeletonForView() {
+        tableView.isHidden = false
+        view.showHDAnimatedGradientSkeleton()
+    }
+    
+    func hideSkeletonForView() {
+        tableView.isHidden = false
+        view.hideSkeleton()
+    }
+    
 }
 
 extension RepositoryListViewController {
@@ -45,8 +62,9 @@ extension RepositoryListViewController {
         self.errorView.isHidden = true
         switch state {
         case .Loading:
-            break
+            self.showSkeletonForView()
         case .Loaded:
+            self.hideSkeletonForView()
             self.tableView.reloadData()
         case .Error:
             self.errorView.isHidden = false

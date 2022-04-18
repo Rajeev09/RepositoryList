@@ -23,14 +23,16 @@ class RepositoryListViewModel {
     
     func fetchRepositories() {
         self.networkManager.fetchData(from: url) { [weak self] (result: Result<RepositoryListModel, Error>) in
-            guard let self = self else { return }
-            self.viewState.value = .Loading
-            switch result {
-            case .success(let modelList):
-                self.cellModels = modelList.items?.map { RepositoryCellViewModel(repositoryModel: $0) } ?? []
-                self.viewState.value = .Loaded
-            case .failure(let error):
-                self.viewState.value = .Error(error)
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.viewState.value = .Loading
+                switch result {
+                case .success(let modelList):
+                    self.cellModels = modelList.items?.map { RepositoryCellViewModel(repositoryModel: $0) } ?? []
+                    self.viewState.value = .Loaded
+                case .failure(let error):
+                    self.viewState.value = .Error(error)
+                }
             }
         }
     }

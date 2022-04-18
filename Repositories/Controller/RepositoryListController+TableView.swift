@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension RepositoryListViewController: UITableViewDataSource {
     
@@ -27,4 +28,24 @@ extension RepositoryListViewController: UITableViewDelegate {
         self.viewModel.setCollapsibleState(index: indexPath.row)
         self.viewModel.viewState.value = .Loaded
     }
+}
+
+extension RepositoryListViewController: SkeletonTableViewDataSource {
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 1
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return String(describing: RepositoryCell.self)
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, skeletonCellForRowAt indexPath: IndexPath) -> UITableViewCell? {
+        let cell = skeletonView.dequeueReusableCell(RepositoryCell.self, indexPath: indexPath)
+        return cell
+    }
+
 }

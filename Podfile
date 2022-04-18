@@ -8,6 +8,7 @@ target 'Repositories' do
   # Pods for Repositories
 
   pod 'SDWebImage', '~> 5.0'
+  pod 'SkeletonView'
 
   target 'RepositoriesTests' do
     inherit! :search_paths
