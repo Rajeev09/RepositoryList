@@ -7,7 +7,9 @@
 
 import Foundation
 
-class RepositoryCellViewModel {
+class RepositoryCellViewModel: Equatable {
+    
+    let id: Int?
     let ownerName: String?
     let avtarImageUrlString: String?
     let name: String?
@@ -23,6 +25,7 @@ class RepositoryCellViewModel {
     }
     
     init(repositoryModel: RepositoryModel) {
+        self.id = repositoryModel.id
         self.ownerName = repositoryModel.owner?.name
         self.avtarImageUrlString = repositoryModel.owner?.imageUrl
         self.name = repositoryModel.name
@@ -35,4 +38,8 @@ class RepositoryCellViewModel {
     func setCollapsibleState(hasCollapsed: Bool) {
         self.hasCollapsed = hasCollapsed
     }
+}
+
+func == (lhs: RepositoryCellViewModel, rhs: RepositoryCellViewModel) -> Bool {
+    return lhs.id == rhs.id
 }

@@ -12,28 +12,26 @@ class RepositoryListViewModel {
     private let url = "https://api.github.com/search/repositories?q=ios&per_page=50&sort=stars&page=1&order=desc&since=daily"
     
     var cellModels = [RepositoryCellViewModel]()
-    private let networkManager: DataSourceProtocol
+    private let repositoryDataSource: RepositoryDataSourceProtocol
     
     let viewState: Observable<ViewState> = Observable(.Loading)
 
     
-    init(networkManager: DataSourceProtocol) {
-        self.networkManager = networkManager
+    init(repositoryDataSource: RepositoryDataSourceProtocol) {
+        self.repositoryDataSource = repositoryDataSource
     }
     
     func fetchRepositories(forceFetch: Bool) {
         self.viewState.value = .Loading
-        self.networkManager.fetchData(forceFetch: forceFetch, from: url) { [weak self] (result: Result<RepositoryListModel, Error>) in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
+        self.repositoryDataSource.fetchData(forceFetch: forceFetch, from: url) { [weak self] result in
+            guard let self = self else { return }
+            self.viewState.value = .Loaded
+            switch result {
+            case .success(let modelList):
+                self.cellModels = modelList.items?.map { RepositoryCellViewModel(repositoryModel: $0) } ?? []
                 self.viewState.value = .Loaded
-                switch result {
-                case .success(let modelList):
-                    self.cellModels = modelList.items?.map { RepositoryCellViewModel(repositoryModel: $0) } ?? []
-                    self.viewState.value = .Loaded
-                case .failure(let error):
-                    self.viewState.value = .Error(error)
-                }
+            case .failure(let error):
+                self.viewState.value = .Error(error)
             }
         }
     }

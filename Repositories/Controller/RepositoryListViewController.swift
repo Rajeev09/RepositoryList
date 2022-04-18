@@ -13,7 +13,8 @@ class RepositoryListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var errorView: UIImageView!
     
-    let viewModel = RepositoryListViewModel(networkManager: NetworkManager.shared)
+    private lazy var dataSource = RepositoryDataSource(networkManager: NetworkManager.shared)
+    lazy var viewModel = RepositoryListViewModel(repositoryDataSource: dataSource)
     var refreshControl: UIRefreshControl?
 
     override func viewDidLoad() {

@@ -10,24 +10,54 @@ import XCTest
 
 class RepositoriesTests: XCTestCase {
 
+    var viewModel: RepositoryListViewModel?
+    let mockDataSource = MockDataSource()
+    let firstModel = RepositoryModel(id: 31792824, name: "flutter", owner: RepositoryOwner(name: "flutter", imageUrl: "https://avatars.githubusercontent.com/u/14101776?v=4"), description: "Flutter makes it easy and fast to build beautiful apps for mobile and beyond.", language: "Dart", forksCount: 16944, starGazersCount: 118700)
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = RepositoryListViewModel(repositoryDataSource: mockDataSource)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFetchRepositoriesSuccess() {
+        viewModel?.fetchRepositories(forceFetch: true)
+        XCTAssertEqual(viewModel?.viewState.value, .Loading)
+        mockDataSource.fetchMockForSuccessState()
+        XCTAssertGreaterThan(viewModel?.cellModels.count ?? 0, 0)
+        XCTAssertEqual(viewModel?.viewState.value, .Loaded)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testFetchRepositoriesFailure() {
+        viewModel?.fetchRepositories(forceFetch: true)
+        XCTAssertEqual(viewModel?.viewState.value, .Loading)
+        mockDataSource.fetchMockFail(error: MockDataError.parsingFailed)
+        XCTAssertEqual(viewModel?.cellModels.count ?? 0, 0)
+        XCTAssertEqual(viewModel?.viewState.value, .Error(MockDataError.parsingFailed))
     }
-
+    
+    func testGetRepositoryCellModelCount() {
+        viewModel?.fetchRepositories(forceFetch: true)
+        mockDataSource.fetchMockForSuccessState()
+        XCTAssertEqual(viewModel?.getRepositoryCellModelCount() ?? 0, 3)
+    }
+    
+    func testGetRepositoryCellModelAtIndex() {
+        viewModel?.fetchRepositories(forceFetch: true)
+        mockDataSource.fetchMockForSuccessState()
+        XCTAssertEqual(viewModel?.getRepositoryCellModel(index: 0), RepositoryCellViewModel(repositoryModel: firstModel))
+    }
+    
+    func testSetCollapsibleState() {
+        viewModel?.fetchRepositories(forceFetch: true)
+        mockDataSource.fetchMockForSuccessState()
+        viewModel?.setCollapsibleState(index: 0)
+        XCTAssertEqual(viewModel?.cellModels[0].hasCollapsed, false)
+        viewModel?.setCollapsibleState(index: 0)
+        XCTAssertEqual(viewModel?.cellModels[0].hasCollapsed, true)
+    }
+    
+    
 }
