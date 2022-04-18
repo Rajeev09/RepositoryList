@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct RepositoryListModel: Codable {
+    var items: [RepositoryModel]?
+    
+    enum CodingKeys: String, CodingKey {
+        case items = "items"
+    }
+}
+
 struct RepositoryModel: Codable {
     var id: Int?
     var name: String?

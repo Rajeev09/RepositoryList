@@ -73,10 +73,16 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uHd-vJ-mKA">
                                                         <rect key="frame" x="10" y="17" width="16" height="16"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="0au-8z-JUA"/>
                                                             <constraint firstAttribute="height" constant="16" id="t5g-QW-XOc"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8G-iJ-E3l">
                                                         <rect key="frame" x="30" y="15" width="141" height="20.5"/>
@@ -97,7 +103,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wq-Xh-vvX">
                                                 <rect key="frame" x="181" y="0.0" width="181" height="50"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kap-jm-Vkr">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fork-black" translatesAutoresizingMaskIntoConstraints="NO" id="kap-jm-Vkr">
                                                         <rect key="frame" x="10" y="17" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="EZI-2C-6sc"/>
@@ -123,7 +129,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-hD-2Xl">
                                                 <rect key="frame" x="362" y="0.0" width="181" height="50"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-i6-p7Y">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-yellow" translatesAutoresizingMaskIntoConstraints="NO" id="yYt-i6-p7Y">
                                                         <rect key="frame" x="10" y="17" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="WPZ-49-ghq"/>
@@ -173,12 +179,28 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="20c-Hp-HpF" id="2o6-WM-Yue"/>
+                <outlet property="forksCountLabel" destination="eJ8-Pr-qfv" id="0xl-3e-QHz"/>
+                <outlet property="forksCountView" destination="3wq-Xh-vvX" id="qHY-jO-gIE"/>
+                <outlet property="languageLabel" destination="R8G-iJ-E3l" id="uej-WB-iWK"/>
+                <outlet property="languageView" destination="kJq-hy-ieF" id="zMy-Pf-zqB"/>
+                <outlet property="nameLabel" destination="roc-y3-dnk" id="KN3-Fm-0Or"/>
+                <outlet property="ownerNameLabel" destination="aA1-vv-MWa" id="sk4-E9-Mpt"/>
+                <outlet property="starGazersCountLabel" destination="Rgu-Dj-PXj" id="ak7-GO-zra"/>
+                <outlet property="starGazersCountView" destination="CaB-hD-2Xl" id="TP7-2h-0d2"/>
+            </connections>
             <point key="canvasLocation" x="286.23188405797106" y="161.38392857142856"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="fork-black" width="32" height="32"/>
+        <image name="star-yellow" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

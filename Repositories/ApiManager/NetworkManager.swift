@@ -7,9 +7,13 @@
 
 import Foundation
 
-class NetworkManager {
+protocol DataSourceProtocol {
+    func fetchData<T: Decodable>(from urlString: String, completion: @escaping (Result<T,Error>) -> ())
+}
+
+class NetworkManager: DataSourceProtocol {    
     
-    let shared = NetworkManager()
+    static let shared = NetworkManager()
     
     private init() {
         
