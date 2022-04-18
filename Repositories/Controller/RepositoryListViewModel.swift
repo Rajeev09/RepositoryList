@@ -49,6 +49,7 @@ extension RepositoryListViewModel {
     }
     
     func setCollapsibleState(index: Int) {
+        cellModels.forEach { $0.setCollapsibleState(hasCollapsed: true) }
         let cellModel = cellModels[index]
         cellModel.setCollapsibleState(hasCollapsed: !cellModel.hasCollapsed)
     }

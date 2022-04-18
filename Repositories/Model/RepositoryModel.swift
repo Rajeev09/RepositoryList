@@ -25,7 +25,7 @@ struct RepositoryModel: Codable {
     var starGazersCount: Int?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, language, owner
+        case id, name, language, owner, description
         case forksCount = "forks_count"
         case starGazersCount = "stargazers_count"
     }

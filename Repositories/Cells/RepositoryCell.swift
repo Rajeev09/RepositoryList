@@ -17,7 +17,8 @@ class RepositoryCell: UITableViewCell {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var forksCountLabel: UILabel!
     @IBOutlet weak var starGazersCountLabel: UILabel!
-    
+    @IBOutlet weak var verticalSpacing: NSLayoutConstraint!
+
     @IBOutlet weak var languageView: UIView!
     @IBOutlet weak var forksCountView: UIView!
     @IBOutlet weak var starGazersCountView: UIView!
@@ -55,7 +56,9 @@ class RepositoryCell: UITableViewCell {
         }
         
         detailView.isHidden = false
+        verticalSpacing.constant = 8
         if viewModel.hasCollapsed {
+            verticalSpacing.constant = 16
             detailView.isHidden = true
         }
         
