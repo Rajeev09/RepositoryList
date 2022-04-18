@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0485AF57280D9C6600008ECF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485AF56280D9C6600008ECF /* NetworkManager.swift */; };
 		04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD2280BF21F004280E5 /* AppDelegate.swift */; };
 		04FDCDD5280BF21F004280E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */; };
 		04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDD6280BF21F004280E5 /* RepositoryListViewController.swift */; };
@@ -15,6 +16,9 @@
 		04FDCDDF280BF222004280E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FDCDDD280BF222004280E5 /* LaunchScreen.storyboard */; };
 		04FDCDEA280BF223004280E5 /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDE9280BF223004280E5 /* RepositoriesTests.swift */; };
 		04FDCDF5280BF223004280E5 /* RepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCDF4280BF223004280E5 /* RepositoriesUITests.swift */; };
+		04FDCE06280C0170004280E5 /* RepositoryListController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */; };
+		04FDCE18280C2AFF004280E5 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDCE16280C2AFF004280E5 /* RepositoryCell.swift */; };
+		04FDCE19280C2AFF004280E5 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FDCE17280C2AFF004280E5 /* RepositoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0485AF56280D9C6600008ECF /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		04FDCDCF280BF21F004280E5 /* Repositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Repositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FDCDD2280BF21F004280E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		04FDCDF0280BF223004280E5 /* RepositoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepositoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FDCDF4280BF223004280E5 /* RepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesUITests.swift; sourceTree = "<group>"; };
 		04FDCDF6280BF223004280E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryListController+TableView.swift"; sourceTree = "<group>"; };
+		04FDCE16280C2AFF004280E5 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		04FDCE17280C2AFF004280E5 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,8 @@
 		04FDCDD1280BF21F004280E5 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				04FDCE1D280C8783004280E5 /* Cells */,
+				04FDCE0D280C05C5004280E5 /* ApiManager */,
 				04FDCDD2280BF21F004280E5 /* AppDelegate.swift */,
 				04FDCDD4280BF21F004280E5 /* SceneDelegate.swift */,
 				04FDCDD6280BF21F004280E5 /* RepositoryListViewController.swift */,
@@ -106,6 +116,7 @@
 				04FDCDDB280BF222004280E5 /* Assets.xcassets */,
 				04FDCDDD280BF222004280E5 /* LaunchScreen.storyboard */,
 				04FDCDE0280BF222004280E5 /* Info.plist */,
+				04FDCE05280C0170004280E5 /* RepositoryListController+TableView.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -126,6 +137,23 @@
 				04FDCDF6280BF223004280E5 /* Info.plist */,
 			);
 			path = RepositoriesUITests;
+			sourceTree = "<group>";
+		};
+		04FDCE0D280C05C5004280E5 /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				0485AF56280D9C6600008ECF /* NetworkManager.swift */,
+			);
+			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		04FDCE1D280C8783004280E5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04FDCE16280C2AFF004280E5 /* RepositoryCell.swift */,
+				04FDCE17280C2AFF004280E5 /* RepositoryCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +262,7 @@
 				04FDCDDF280BF222004280E5 /* LaunchScreen.storyboard in Resources */,
 				04FDCDDC280BF222004280E5 /* Assets.xcassets in Resources */,
 				04FDCDDA280BF21F004280E5 /* Main.storyboard in Resources */,
+				04FDCE19280C2AFF004280E5 /* RepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0485AF57280D9C6600008ECF /* NetworkManager.swift in Sources */,
+				04FDCE18280C2AFF004280E5 /* RepositoryCell.swift in Sources */,
 				04FDCDD7280BF21F004280E5 /* RepositoryListViewController.swift in Sources */,
+				04FDCE06280C0170004280E5 /* RepositoryListController+TableView.swift in Sources */,
 				04FDCDD3280BF21F004280E5 /* AppDelegate.swift in Sources */,
 				04FDCDD5280BF21F004280E5 /* SceneDelegate.swift in Sources */,
 			);
