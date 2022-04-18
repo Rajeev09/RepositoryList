@@ -11,6 +11,7 @@ import UIKit
 class RepositoryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorView: UIImageView!
     
     let viewModel = RepositoryListViewModel(networkManager: NetworkManager.shared)
 
@@ -41,13 +42,14 @@ class RepositoryListViewController: UIViewController {
 
 extension RepositoryListViewController {
     func render(state: ViewState) {
+        self.errorView.isHidden = true
         switch state {
         case .Loading:
             break
         case .Loaded:
             self.tableView.reloadData()
-        case .Error(let error):
-            break
+        case .Error:
+            self.errorView.isHidden = false
         }
     }
 }
